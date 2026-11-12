@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 function Home() {
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
   const [photos, setPhotos] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -28,12 +27,12 @@ function Home() {
     <div className="page">
       <h1>Home</h1>
       <div className="stats">
-        <p className="card">Posts: {posts.length}</p>
-        <p className="card">Comments: {comments.length}</p>
-        <p className="card">Photos: {photos.length}</p>
+        <div className="card">Posts: {posts.length}</div>
+        <div className="card">Comments: {comments.length}</div>
+        <div className="card">Photos: {photos.length}</div>
       </div>
     </div>
   )
 }
 
-export default Home
+export default Home;
